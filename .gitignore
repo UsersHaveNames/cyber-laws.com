@@ -21,3 +21,4 @@ public/pagefind/
 
 # macOS-specific files
 .DS_Store
+/.vs
