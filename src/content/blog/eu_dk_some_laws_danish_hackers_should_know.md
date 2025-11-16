@@ -4,7 +4,7 @@ description: "Overview of key Danish Penal Code provisions on unauthorized acces
 pubDate: "Nov 16 2025"
 updatedDate: "Nov 16 2025"
 heroImage:
-  src: "/images/danish-cyber-laws.webp"
+  src: "/images/hacker-behind-bars-intro.webp"
   alt: "Danish cyber law overview"
 tags: ["denmark","danish","law","penal code","cybersecurity","compliance","hacking","legal","fraud","privacy"]
 series: "EU + DK Cyber Law"
