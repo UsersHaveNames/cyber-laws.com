@@ -16,7 +16,7 @@ function buildNavLink(nav: string, entry: NavEntry): string {
 		return `/${lang}${entry.route}`;
 	}
 
-	return `/${lang}${nav != "home" ? `/${entry.slug}/` : "/"}`;
+	return nav != "home" ? `/${lang}/${entry.slug}/` : "/";
 }
 ---
 

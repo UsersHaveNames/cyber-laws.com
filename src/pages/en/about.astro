@@ -3,52 +3,46 @@ import Layout from "@/layouts/Base";
 ---
 
 <Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
+	title="About"
+	description="Why this blog exists and what you can expect"
 	image="/blog-placeholder-about.jpg"
 >
 	<h1 class="title">About</h1>
-	<p>
-		Hi, I'm a Astro theme. I'm particularly great for starting a blog or a
-		portfolio.
-		<div>
-			I was based on two other themes:
-			<a
-				class="cody-link"
-				href="https://astro-theme-cactus.netlify.app"
-				target="_blank"
-				rel="noopener noreferrer">Astro Cactus</a
-			>
-			and
-			<a
-				class="cody-link"
-				target="_blank"
-				rel="noopener noreferrer"
-				href="https://risotto.joeroe.io">Risotto</a
-			>.
-		</div>
+	<p class="mb-4">
+		This blog is co-run by a Cybersecurity Engineer and a Law Student. We bridge
+		the gap between technology and regulation by tracking how security practices
+		meet legal obligations across the EU and beyond. Our goal is to transform
+		dense regulations into practical guidance that engineers, lawyers, founders,
+		and compliance teams can actually use.
 	</p>
-
-	<h2 class="title mt-4">Here are my built-in features:</h2>
-	<ul class="list-inside list-disc">
-		<li>Looks great on any device</li>
-		<li>Fully Responsive</li>
-		<li>Comes light and dark mode</li>
-		<li>Easy to customize and add content</li>
-		<li>Built with tailwindcss</li>
-		<li>Pin posts and projects</li>
+	<p class="mb-4">
+		Why we built this: the cybersecurity legal landscape is changing fast
+		(NIS2, DORA, CRA, GDPR, eIDAS, and more). Teams often struggle to translate
+		high-level texts into day‑to‑day controls, architectures, and processes.
+		Here, we summarize the essentials, highlight what really changes for
+		organizations, and point to authoritative sources.
+	</p>
+	<h2 class="title mt-6">Editorial principles</h2>
+	<ul class="list-inside list-disc mb-6">
+		<li>Accuracy first: we cite primary sources (EUR‑Lex, ENISA, official guidance).</li>
+		<li>Actionable: we connect legal requirements to security controls and workflows.</li>
+		<li>Neutral and concise: no hype, just what matters for implementation.</li>
+		<li>Kept current: we revise posts as standards and guidance evolve.</li>
 	</ul>
-	<p class="mt-4">
-		Clone or fork my
-		<a
-			class="cody-link inline-block"
-			href="https://github.com/kirontoo/astro-theme-cody"
-			target="_blank"
-			rel="noopener noreferrer"
-			aria-label="github repository"
-		>
-			repo
-		</a>
-		if you like me!
+	<h2 class="title mt-6">What you’ll find</h2>
+	<ul class="list-inside list-disc mb-6">
+		<li>Plain-language explainers of new and existing EU cybersecurity rules</li>
+		<li>Checklists and mappings to frameworks (NIST CSF, ISO/IEC 27001, OWASP)</li>
+		<li>Developer- and auditor-friendly interpretations with concrete examples</li>
+		<li>Links to official texts on EUR‑Lex and guidance from ENISA and other bodies</li>
+	</ul>
+	<p class="mb-4">
+		Who this is for: security practitioners, product teams, GRC, and legal
+		professionals who need clarity quickly. We focus on what’s actionable,
+		cite primary sources, and keep content current as guidance evolves.
+	</p>
+	<p>
+		If you have suggestions or spot something to improve, reach out via the
+		social links in the footer.
 	</p>
 </Layout>

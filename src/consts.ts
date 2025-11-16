@@ -1,14 +1,19 @@
 // This is your config file, place any global data here.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-import type nav from "./i18n/nav";
-import ui from "./i18n/ui";
-import type { SupportedLanguage } from "./utils/i18n";
+// Self-contained config to avoid cross-module import cycles.
+
+export const SUPPORTED_LANGUAGES = {
+  en: "en",
+  es: "es",
+} as const;
+
+export type SupportedLanguage = typeof SUPPORTED_LANGUAGES[keyof typeof SUPPORTED_LANGUAGES];
 
 type Config = {
   title: string;
   description: string;
-  lang: string;
+  lang: SupportedLanguage;
   profile: {
     author: string;
     description?: string;
@@ -24,55 +29,51 @@ type SocialLink = {
   link: string;
 }
 
-export const SUPPORTED_LANGUAGES = {
-  'en': 'en',
-  'es': 'es'
-};
-
-export const DEFAULT_LANG = SUPPORTED_LANGUAGES.en as SupportedLanguage;
+export const DEFAULT_LANG: SupportedLanguage = SUPPORTED_LANGUAGES.en;
 
 export const siteConfig: Config = {
-  title: ui[DEFAULT_LANG]["site.title"].text,
-  description: ui[DEFAULT_LANG]["site.description"].text,
+  title: "Cyber Laws",
+  description: "Practical insights at the intersection of cybersecurity and regulation.",
   lang: DEFAULT_LANG,
   profile: {
-    author: "Amy Dang",
-    description: ui[DEFAULT_LANG]["profile.description"].text
+    author: "Cyber Laws",
+    description: "A blog about EU cybersecurity laws, frameworks, and practical implementation.",
   },
   settings: {
-    paginationSize: 10
-  }
-}
+    paginationSize: 10,
+  },
+};
 
 /** 
-  These are you social media links. 
+  These are your social media links. 
   It uses https://github.com/natemoo-re/astro-icon#readme
   You can find icons @ https://icones.js.org/
 */
 export const SOCIAL_LINKS: Array<SocialLink> = [
   {
     icon: "mdi:github",
-    friendlyName: "Github",
-    link: "https://github.com/kirontoo/astro-theme-cody",
+    friendlyName: "GitHub",
+    link: "https://github.com/UsersHaveNames/cyber-laws.com",
   },
   {
     icon: "mdi:linkedin",
-    friendlyName: "LinkedIn",
-    link: "#",
+    friendlyName: "LinkedIn – Andrei",
+    link: "https://www.linkedin.com/in/andreimungiu/",
   },
   {
-    icon: "mdi:email",
-    friendlyName: "email",
-    link: "mailto:ndangamy@gmail.com",
+    icon: "mdi:linkedin",
+    friendlyName: "LinkedIn – Valeria",
+    link: "https://www.linkedin.com/in/mungiu-valeria-a489442a8/",
   },
   {
     icon: "mdi:rss",
-    friendlyName: "rss",
-    link: "/rss.xml"
-  }
+    friendlyName: "RSS",
+    link: "/rss.xml",
+  },
 ];
 
-// NOTE: match these entries with keys in `src/i18n/nav.ts`
-export const NAV_LINKS: Array<keyof typeof nav[SupportedLanguage]> = [
+// Keep in sync with nav keys
+export type NavKey = "home" | "about" | "blog" | "projects" | "archive";
+export const NAV_LINKS: NavKey[] = [
   "home", "about", "blog", "projects", "archive"
 ];

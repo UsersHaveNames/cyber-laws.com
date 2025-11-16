@@ -9,13 +9,13 @@ import type { SupportedLanguage } from "src/utils/i18n";
 export default {
     "en": {
         "site.title": {
-            text: "Astro Theme Cody"
+            text: "Cyber Laws"
         },
         "site.description": {
-            text: "A minimalist blog theme built with Astro. A quick and easy starter build for anyone who wants to start their own blog."
+            text: "Practical insights at the intersection of cybersecurity and regulation."
         },
         "profile.description": {
-            text: "your bio description"
+            text: "A blog about EU cybersecurity laws, frameworks, and practical implementation."
         },
         "blog.lastUpdated": {
             text: "Last updated:"
@@ -35,13 +35,13 @@ export default {
     },
     "es": {
         "site.title": {
-            text: "Astro Theme Cody"
+            text: "Cyber Laws"
         },
         "site.description": {
-            text: "Un tema de blog minimalista creado con Astro. Un tema de inicio rápido y sencillo para cualquiera que quiera crear su propio blog."
+            text: "Ideas prácticas en la intersección de la ciberseguridad y la regulación."
         },
         "profile.description": {
-            text: "tu descripción biográfica"
+            text: "Un blog sobre leyes de ciberseguridad de la UE, marcos y aplicación práctica."
         },
         "blog.lastUpdated": {
             text: "Última actualización:"
