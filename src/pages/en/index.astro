@@ -56,23 +56,13 @@ const tech: Array<{ title: string; desc: string; href: string }> = [
 		title: "NIST Cybersecurity Framework 2.0",
 		desc: "Risk-based framework for managing cybersecurity risk.",
 		href: "https://www.nist.gov/cyberframework",
-	},
-	{
-		title: "ISO/IEC 27001",
-		desc: "Information security management system standard (ISMS).",
-		href: "https://www.iso.org/standard/27001",
-	},
-	{
-		title: "OWASP Top 10",
-		desc: "Most critical web application security risks.",
-		href: "https://owasp.org/www-project-top-ten/",
-	},
+	}
 ];
 ---
 
 <BaseLayout title="Home">
 	<section>
-		<h1 class="title">Hello World</h1>
+		<h1 class="title">Intro</h1>
 		<p class="mb-4 sm:mb-8">
 			This blog is maintained by a Cybersecurity Engineer and a Law Student, focusing on the intersection of security, regulation, and compliance in the EU and beyond. Meet the maintainers: Andrei (Cybersecurity Engineer) and Valeria (Law Student).
 		</p>
@@ -94,10 +84,10 @@ const tech: Array<{ title: string; desc: string; href: string }> = [
 	</section>
 
 	<section class="mt-16">
-		<h2 class="title">Official Cybersecurity sources we recommend</h2>
+		<h2 class="title">Official references</h2>
 		<ul class="space-y-4 sm:space-y-2">
 			{
-				tech.map(({ href, title, desc }) => (
+				tech.map(({ href, title }) => (
 					<li>
 						<a
 							href={href}
@@ -107,7 +97,6 @@ const tech: Array<{ title: string; desc: string; href: string }> = [
 						>
 							{title}
 						</a>
-						: <p class="inline-block sm:mt-2">{desc}</p>
 					</li>
 				))
 			}
