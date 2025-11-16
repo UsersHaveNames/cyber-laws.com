@@ -3,7 +3,6 @@ import Search from './Search.astro';
 import HeaderLink from "./HeaderLink.astro";
 import { siteConfig, NAV_LINKS } from "../consts";
 import ThemeToggle from "@/components/ThemeToggle";
-import SelectLanguage from "@/components/SelectLanguage";
 import { getLangFromUrl } from "@/utils";
 import { useNavTranslations } from "src/utils/i18n";
 import type { NavEntry } from "@/i18n/nav";
@@ -17,7 +16,7 @@ function buildNavLink(nav: string, entry: NavEntry): string {
 		return `/${lang}${entry.route}`;
 	}
 
-	return `/${lang}${nav != "home" ? `/${entry.slug}/` : "/"}`;
+	return nav != "home" ? `/${lang}/${entry.slug}/` : "/";
 }
 ---
 
@@ -81,7 +80,6 @@ function buildNavLink(nav: string, entry: NavEntry): string {
 
 	<div class="flex gap-2 items-center justify-center">
 		<Search/>
-		<SelectLanguage class="sm:mr-2" />
 		<ThemeToggle />
 
 		<nav-button>
