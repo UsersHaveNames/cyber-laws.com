@@ -32,32 +32,6 @@ export default {
         "project.website": {
             text: "WEBSITE"
         }
-    },
-    "es": {
-        "site.title": {
-            text: "Cyber Laws"
-        },
-        "site.description": {
-            text: "Ideas prácticas en la intersección de la ciberseguridad y la regulación."
-        },
-        "profile.description": {
-            text: "Un blog sobre leyes de ciberseguridad de la UE, marcos y aplicación práctica."
-        },
-        "blog.lastUpdated": {
-            text: "Última actualización:"
-        },
-        "sidebar.tableOfContents": {
-            text: "Tabla de contenidos"
-        },
-        "project.platform": {
-            text: "PLATAFORMA"
-        },
-        "project.stack": {
-            text: "PILA"
-        },
-        "project.website": {
-            text: "WEBSITE"
-        }
     }
 } as const satisfies TranslationUIEntries;
 

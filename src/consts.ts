@@ -4,8 +4,7 @@
 // Self-contained config to avoid cross-module import cycles.
 
 export const SUPPORTED_LANGUAGES = {
-  en: "en",
-  es: "es",
+  en: "en"
 } as const;
 
 export type SupportedLanguage = typeof SUPPORTED_LANGUAGES[keyof typeof SUPPORTED_LANGUAGES];
