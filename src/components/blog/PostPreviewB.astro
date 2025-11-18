@@ -15,7 +15,8 @@ const lang = getLangFromUrl(Astro.url);
 const slug = getSlugFromCollectionEntry(post);
 const urlBasePath =
 	post.collection === "project" ? "projects" : post.collection;
-const postDate = post.data.updatedDate ?? post.data.pubDate;
+// Display the original publish date to match the post page header
+const postDate = post.data.pubDate;
 const pinned: boolean = !!post.data.order;
 ---
 

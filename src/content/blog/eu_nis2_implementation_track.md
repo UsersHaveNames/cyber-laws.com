@@ -8,6 +8,7 @@ heroImage:
   alt: 'NIS2 implementation status placeholder'
 tags: ["NIS2", "EU", "directive", "act", "draft", "legislation", "compliance", "cybersecurity", "implement"]
 series: "NIS2"
+order: 1
 ---
 
 Below is a list of NIS2 implementing acts or drafts for all EU countries.

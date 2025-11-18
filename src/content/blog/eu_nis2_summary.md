@@ -10,7 +10,6 @@ ogImage: "/images/nis2-fines.webp"
 tags: ["compliance","controlls","cyber","cyber-security","cybersecurity","directive","IT","legislation","NIS2","OT","security","summary","technology"]
 series: "EU Cyber Legislation"
 draft: false
-order: 1
 hide: false
 authors: ["Andrei & Valeria"]
 categories: ["EU","EU Directives"]
