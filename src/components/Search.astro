@@ -34,16 +34,30 @@ import { Icon } from "astro-icon";
 </site-search>
 
 <script>
-	import { PagefindUI } from "@pagefind/default-ui";
-	window.addEventListener("DOMContentLoaded", () => {
-		new PagefindUI({
-			baseUrl: `${import.meta.env.BASE_URL}`,
-			bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
-			element: "#cody-search",
-			showImages: false,
-			showSubResults: true,
-		});
-	});
+	let pagefindLoaded = false;
+	let pagefindUiInstance: any = null;
+
+	async function ensurePagefind() {
+		if (pagefindLoaded) return;
+		try {
+			// dynamically import only when needed
+			const mod: any = await import("@pagefind/default-ui");
+			const PagefindUI = mod.PagefindUI || mod.default || mod;
+			pagefindUiInstance = new PagefindUI({
+				baseUrl: `${import.meta.env.BASE_URL}`,
+				bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/_pagefind/",
+				element: "#cody-search",
+				showImages: false,
+				showSubResults: true,
+			});
+			pagefindLoaded = true;
+			// best-effort: prefetch manifest to speed up first query and surface dev 404s
+			const manifest = import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/manifest.json";
+			fetch(manifest).then(r => { if (!r.ok) console.warn("Pagefind manifest not found. Build and run postbuild to enable search."); }).catch(() => {});
+		} catch (e) {
+			console.error("Failed to initialize PagefindUI", e);
+		}
+	}
 
 	class SiteSearch extends HTMLElement {
 		openModalBtn: HTMLButtonElement | null;
@@ -70,9 +84,12 @@ import { Icon } from "astro-icon";
 			this.closeModal = this.closeModal.bind(this);
 			this.onWindowClick = this.onWindowClick.bind(this);
 
-			// initalize event handlers
+			// initialize event handlers
 			if (this.openModalBtn) {
 				this.openModalBtn.addEventListener("click", this.openModal);
+				// prewarm on hover/touch to reduce first-interaction latency
+				this.openModalBtn.addEventListener("mouseenter", () => { ensurePagefind(); });
+				this.openModalBtn.addEventListener("touchstart", () => { ensurePagefind(); }, { passive: true } as any);
 			}
 
 			if (this.closeModalBtn) {
@@ -86,10 +103,10 @@ import { Icon } from "astro-icon";
 			}
 		}
 
-		openModal(event?: MouseEvent) {
+		async openModal(event?: MouseEvent) {
 			if (this.dialogElement) {
 				this.dialogElement.showModal();
-
+				await ensurePagefind();
 				this.querySelector("input")?.focus();
 				event?.stopPropagation();
 				window.addEventListener("click", this.onWindowClick);
